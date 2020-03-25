@@ -5,7 +5,7 @@ $username = "";
 $email = "";
 $errors = [];
 
-$conn = new mysqli('localhost', 'root', '', 'verifyuser');
+$conn = new mysqli('localhost', 'newuser', 'password', 'verifyuser');
 
 // SIGN UP USER
 if (isset($_POST['signup-btn'])) {
