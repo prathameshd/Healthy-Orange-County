@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$conn = new mysqli('localhost', 'newuser', 'password', 'verifyuser');
+$conn = new mysqli('localhost', 'root', '', 'verifyuser');
 
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
