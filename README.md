@@ -11,7 +11,7 @@ CREATE TABLE users (
  token varchar(255) DEFAULT NULL,
  password varchar(255) NOT NULL,
  role varchar(100) NOT NULL DEFAULT 'user',
- PRIMARY KEY (`id`)
+ PRIMARY KEY (id)
 )
 
 # Hard Coded Admin:
