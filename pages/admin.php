@@ -27,6 +27,10 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu2">Users</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="../php/logout.php">Logout</a>
+    </li>
+
   </ul>
 
 <!-- Tab panes -->
@@ -103,40 +107,20 @@ Some text inside the second card</p>
 
 <div id="menu2" class="container tab-pane fade"><br>
   <h4>All Registered Users</h4>
-	
-<!--  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
--->
+	<?php
+		$sql = "SELECT `username`, `email` FROM `users`  ORDER BY `username` ASC";
+		$result = mysqli_query($conn, $sql);?>
+	<table class="table table-hover">
+	<tr><th>Username</th><th>Email</th></tr>
+	<?php
+		while($user = mysqli_fetch_array($result)){
+			echo '<tr>';
+    			echo '<td>'.$user['username'].'</td>';
+			echo '<td>'.$user['email'].'</td>';
+			echo '</tr>';
+		}
+	?>
 </div>
-
 </div>
-<br>
-<a href="../php/logout.php">Logout</a>
-</div>
-
 </body>
 </html>
