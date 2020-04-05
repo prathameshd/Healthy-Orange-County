@@ -1,8 +1,8 @@
-<?php include '../controllers/authController.php'?>
+<?php include '../php/authController.php'?>
 
 <?php if ($_SESSION['role'] == 'admin'):
-	header('location: ../html/admin.html');
+	header('location: ../pages/admin.php');
       else:
-	header('location: ../html/user.html');
+	header('location: ../pages/user.html');
       endif;
 ?>

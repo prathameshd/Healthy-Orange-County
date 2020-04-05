@@ -4,4 +4,4 @@ unset($_SESSION['id']);
 unset($_SESSION['username']);
 unset($_SESSION['email']);
 unset($_SESSION['verify']);
-header("location: ../html/login.php");
+header("location: ../pages/login.php");

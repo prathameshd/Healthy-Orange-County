@@ -1,3 +1,4 @@
+<?php include('../php/authController.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +103,8 @@ Some text inside the second card</p>
 
 <div id="menu2" class="container tab-pane fade"><br>
   <h4>All Registered Users</h4>
-  <table class="table table-hover">
+	
+<!--  <table class="table table-hover">
     <thead>
       <tr>
         <th>Firstname</th>
@@ -128,6 +130,7 @@ Some text inside the second card</p>
       </tr>
     </tbody>
   </table>
+-->
 </div>
 
 </div>
