@@ -53,11 +53,43 @@ if (isset($_POST['signup-btn'])) {
             $_SESSION['verified'] = false;
             $_SESSION['message'] = 'You are logged in!';
             $_SESSION['type'] = 'alert-success';
-            header('location: ../php/loggedin.php');
+            if ($_SESSION['role'] == 'admin'):
+	        header('location: ../pages/admin.php');
+      	    else:
+        	header('location: ../pages/user.php');
+            endif;
+
         } else {
             $_SESSION['error_msg'] = "Database error: Could not register user";
         }
     }
+}
+
+function isLoggedIn()
+{
+	if (isset($_SESSION['username'])) {
+		return true;
+	}else{
+		return false;
+	}
+}
+// log user out if logout button clicked
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['id']);
+	unset($_SESSION['username']);
+	unset($_SESSION['email']);
+	unset($_SESSION['verify']);
+	header("location: ../pages/login.php");
+}
+
+function isAdmin()
+{
+	if (isset($_SESSION['username']) && $_SESSION['role'] == 'admin' ) {
+		return true;
+	}else{
+		return false;
+	}
 }
 
 // LOGIN
@@ -89,7 +121,12 @@ if (isset($_POST['login-btn'])) {
                 $_SESSION['message'] = 'You are logged in!';
                 $_SESSION['type'] = 'alert-success';
 		$_SESSION['role'] = $user['role'];
-                header('location: ../php/loggedin.php');
+                if ($_SESSION['role'] == 'admin'):
+ 	                header('location: ../pages/admin.php');
+        	else:
+                	header('location: ../pages/user.php');
+                endif;
+
                 exit(0);
             } else { // if password does not match
                 $errors['login_fail'] = "Wrong username / password";

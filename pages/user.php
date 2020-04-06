@@ -1,3 +1,10 @@
+<?php 
+    include('../php/authController.php');
+    if (!isLoggedIn()) {
+        $_SESSION['msg'] = "You must log in first";
+        header('location: login.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +20,7 @@
 <br>
 
 <div class="container">
-  <h2>Hello User</h2>
+  <h2>Hello <?php echo $_SESSION['username']; ?> !!</h2>
   <br>
   <!-- Nav tabs -->
   <form action="../php/createEvent.php">
@@ -57,6 +64,6 @@
 </div>
  </div>
 <br>
-<a href='../php/logout.php'>Logout</a>
+<a href="user.php?logout='1'">Logout</a>
 </body>
 </html>

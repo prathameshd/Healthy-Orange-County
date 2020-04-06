@@ -1,4 +1,9 @@
-<?php include('../php/authController.php'); ?>
+<?php include('../php/authController.php'); 
+if (!isAdmin()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +33,7 @@
       <a class="nav-link" data-toggle="tab" href="#menu2">Users</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="../php/logout.php">Logout</a>
+      <a class="nav-link" href="admin.php?logout='1'">Logout</a>
     </li>
 
   </ul>
