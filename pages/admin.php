@@ -1,8 +1,9 @@
 <?php include('../php/authController.php'); 
 if (!isAdmin()) {
-	$_SESSION['msg'] = "You must log in first";
-	header('location: login.php');
+  $_SESSION['msg'] = "You must log in first";
+  header('location: login.php');
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +23,7 @@ if (!isAdmin()) {
   <h2>Welcome Admin</h2>
   <br>
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
+  <ul class="nav nav-tabs" >
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#home">Events</a>
     </li>
@@ -40,62 +41,38 @@ if (!isAdmin()) {
 
 <!-- Tab panes -->
 <div class="tab-content">
-<div id="home" class="container tab-pane active"><br>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<div id="home" class="tab-pane active"><br>
 
-<div class="card-columns">
-    <div class="card bg-light">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the first card</p>
-      </div>
-    </div>
-    <div class="card bg-light">
-      <div class="card-body text-center">
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-Some text inside the second card</p>
-      </div>
-    </div>
-    <div class="card bg-light">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the third card</p>
-      </div>
-    </div>
-    <div class="card bg-light">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the third card</p>
-      </div>
-    </div>
-    
-    <div class="card bg-light">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the fourth card</p>
-      </div>
-    </div>  
-    <div class="card bg-light">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the fifth card</p>
-      </div>
-    </div>
-    <div class="card bg-light">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the sixth card</p>
-      </div>
-    </div>
-  </div>
 
+    <?php
+    $sql2 = "SELECT `title`, `description`,`contact`,`ddate` FROM `allevents`";
+    $result = mysqli_query($conn, $sql2);?>
+  <table class="table table-hover">
+  <tr><th>Title</th><th>Description</th><th>Contact</th><th>Date</th></tr>
+  <?php
+    while($event = mysqli_fetch_array($result)){
+      echo '<tr>';
+          echo '<td>'.$event['title'].'</td>';
+      echo '<td>'.$event['description'].'</td>';
+      echo '<td>'.$event['contact'].'</td>';
+      echo '<td>'.$event['ddate'].'</td>';
+      echo '</tr>';
+    }
+  ?>
+</table>
 </div>
 
-<div id="menu1" class="container tab-pane fade"><br>
+<div id="menu1" class="tab-pane fade"><br>
   <!-- create event form goes here-->
   <h4>Event Details</h4>
-  <form action="../php/createEvent.php">
+  <form action="../php/createEvent.php" method="POST">
   <div class="form-group">
   <label for="title">Title:</label>
   <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
   </div>
   <div class="form-group">
   <label for="description">Description</label>
-  <textarea class="form-control" rows="5" id="description"></textarea>
+  <textarea class="form-control" rows="5" id="description" name="description"></textarea>
 <!--  <input type="text" class="form-control" id="description" placeholder="Description" name="description">-->
   </div>
   <div class="form-group">
@@ -103,28 +80,31 @@ Some text inside the second card</p>
   <input type="date" class="form-control" id="date" placeholder="Date" name="date">
   </div>
   <div class="form-group">
-  <label for="email">Contact:</label>
-  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+  <label for="contact">Contact:</label>
+  <input type="email" class="form-control" id="contact" placeholder="Enter email" name="contact">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" name="event-btn" id="event-btn" class="btn btn-primary">Submit</button>
   </form>
 </div>
 
-<div id="menu2" class="container tab-pane fade"><br>
+<div id="menu2" class="tab-pane fade"><br>
   <h4>All Registered Users</h4>
-	<?php
-		$sql = "SELECT `username`, `email` FROM `users`  ORDER BY `username` ASC";
-		$result = mysqli_query($conn, $sql);?>
-	<table class="table table-hover">
-	<tr><th>Username</th><th>Email</th></tr>
-	<?php
-		while($user = mysqli_fetch_array($result)){
-			echo '<tr>';
-    			echo '<td>'.$user['username'].'</td>';
-			echo '<td>'.$user['email'].'</td>';
-			echo '</tr>';
-		}
-	?>
+  <?php
+    $sql = "SELECT `username`, `email` FROM `users`  ORDER BY `username` ASC";
+    $result = mysqli_query($conn, $sql);?>
+  <table class="table table-hover">
+  <tr><th>Username</th><th>Email</th></tr>
+  <?php
+    while($user = mysqli_fetch_array($result)){
+      echo '<tr>';
+          echo '<td>'.$user['username'].'</td>';
+      echo '<td>'.$user['email'].'</td>';
+      echo '</tr>';
+    }
+  ?>
+</table>
+</div>
+
 </div>
 </div>
 </body>
