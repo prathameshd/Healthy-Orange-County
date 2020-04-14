@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
+$username = "newuser";
 $password = "password";
-$dbname = "abcd";
+$dbname = "verifyuser";
 
 $eventTitle=$_POST["title"];
 $eventDescription=$_POST["description"];
