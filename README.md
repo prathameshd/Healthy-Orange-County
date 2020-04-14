@@ -1,6 +1,11 @@
 # InfoWeb
 Make sure php/authController.php , php/createEvent.php and php/verify_email.php use there correct DB credentials. 
 
+Current DB Credentials:
+User- newuser, 
+Password- password, 
+database- verifyuser
+
 # Databases:
 CREATE DATABASE verifyuser
 
