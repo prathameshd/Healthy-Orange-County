@@ -31,8 +31,11 @@ if (!isAdmin()) {
       <a class="nav-link" data-toggle="tab" href="#menu1">Create New Event</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu3">Messages</a>
+    </li>  
+    <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu2">Users</a>
-    </li>
+    </li>  
     <li class="nav-item">
       <a class="nav-link" href="admin.php?logout='1'">Logout</a>
     </li>
@@ -42,11 +45,10 @@ if (!isAdmin()) {
 <!-- Tab panes -->
 <div class="tab-content">
 <div id="home" class="tab-pane active"><br>
-
-
-    <?php
+  <?php
     $sql2 = "SELECT `title`, `description`,`contact`,`ddate` FROM `allevents`";
-    $result = mysqli_query($conn, $sql2);?>
+    $result = mysqli_query($conn, $sql2);
+  ?>
   <table class="table table-hover">
   <tr><th>Title</th><th>Description</th><th>Contact</th><th>Date</th></tr>
   <?php
@@ -59,7 +61,7 @@ if (!isAdmin()) {
       echo '</tr>';
     }
   ?>
-</table>
+  </table>
 </div>
 
 <div id="menu1" class="tab-pane fade"><br>
@@ -86,6 +88,28 @@ if (!isAdmin()) {
   <button type="submit" name="event-btn" id="event-btn" class="btn btn-primary">Submit</button>
   </form>
 </div>
+
+<div id="menu3" class="tab-pane fade"><br>
+  <?php
+    $sql2 = "SELECT `name`, `email`,`ddate`,`title`,`message` FROM `msgs`";
+    $result = mysqli_query($conn, $sql2);
+  ?>
+  <table class="table table-hover">
+  <tr><th>Name</th><th>Email</th><th>Date</th><th>Title</th><th>Message</th></tr>
+  <?php
+    while($event = mysqli_fetch_array($result)){
+      echo '<tr>';
+          echo '<td>'.$event['name'].'</td>';
+      echo '<td>'.$event['email'].'</td>';
+      echo '<td>'.$event['ddate'].'</td>';
+      echo '<td>'.$event['title'].'</td>';
+      echo '<td>'.$event['message'].'</td>';
+      echo '</tr>';
+    }
+  ?>
+  </table>
+</div>
+
 
 <div id="menu2" class="tab-pane fade"><br>
   <h4>All Registered Users</h4>
