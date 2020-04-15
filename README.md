@@ -1,5 +1,5 @@
 # InfoWeb
-Make sure php/authController.php , php/createEvent.php and php/verify_email.php use the correct DB credentials. 
+Make sure php/authController.php , php/createEvent.php, php/contactmsgs.php and php/verify_email.php use the correct DB credentials. 
 
 Current DB Credentials:
 User- newuser, 
