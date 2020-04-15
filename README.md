@@ -28,6 +28,15 @@ CREATE TABLE allevents(
  contact varchar(100) NOT NULL , PRIMARY KEY (id) 
 );
 
+CREATE TABLE msgs( 
+ id int(11) NOT NULL AUTO_INCREMENT, 
+ name varchar(100) NOT NULL, 
+ email varchar(100) NOT NULL, 
+ ddate varchar(255) NOT NULL, 
+ title varchar(100) NOT NULL, 
+ message varchar(500) NOT NULL , PRIMARY KEY (id) 
+);
+
 # Hard Coded Admin:
 INSERT INTO users(id, username, email, verified, password, role) 
 	    values(0, 'admin', 'healthyorangecountyin@gmail.com', 1, 'admin', 'admin');
