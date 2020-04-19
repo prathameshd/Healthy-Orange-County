@@ -1,9 +1,8 @@
 <?php include('../php/authController.php'); 
 if (!isAdmin()) {
-  $_SESSION['msg'] = "You must log in first";
-  header('location: login.php');
+	$_SESSION['msg'] = "You must log in first";
+	header('location: login.php');
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +22,7 @@ if (!isAdmin()) {
   <h2>Welcome Admin</h2>
   <br>
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" >
+  <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#home">Events</a>
     </li>
@@ -31,11 +30,8 @@ if (!isAdmin()) {
       <a class="nav-link" data-toggle="tab" href="#menu1">Create New Event</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu3">Messages</a>
-    </li>  
-    <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu2">Users</a>
-    </li>  
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="admin.php?logout='1'">Logout</a>
     </li>
@@ -45,23 +41,22 @@ if (!isAdmin()) {
 <!-- Tab panes -->
 <div class="tab-content">
 <div id="home" class="tab-pane active"><br>
-  <?php
+<?php
     $sql2 = "SELECT `title`, `description`,`contact`,`ddate` FROM `allevents`";
-    $result = mysqli_query($conn, $sql2);
-  ?>
+    $result = mysqli_query($conn, $sql2);?>
   <table class="table table-hover">
   <tr><th>Title</th><th>Description</th><th>Contact</th><th>Date</th></tr>
   <?php
     while($event = mysqli_fetch_array($result)){
       echo '<tr>';
-          echo '<td>'.$event['title'].'</td>';
-      echo '<td>'.$event['description'].'</td>';
-      echo '<td>'.$event['contact'].'</td>';
-      echo '<td>'.$event['ddate'].'</td>';
+        echo '<td>'.$event['title'].'</td>';
+        echo '<td>'.$event['description'].'</td>';
+        echo '<td>'.$event['contact'].'</td>';
+        echo '<td>'.$event['ddate'].'</td>';
       echo '</tr>';
     }
   ?>
-  </table>
+    </table>
 </div>
 
 <div id="menu1" class="tab-pane fade"><br>
@@ -75,7 +70,7 @@ if (!isAdmin()) {
   <div class="form-group">
   <label for="description">Description</label>
   <textarea class="form-control" rows="5" id="description" name="description"></textarea>
-<!--  <input type="text" class="form-control" id="description" placeholder="Description" name="description">-->
+
   </div>
   <div class="form-group">
   <label for="date">Date</label>
@@ -85,50 +80,25 @@ if (!isAdmin()) {
   <label for="contact">Contact:</label>
   <input type="email" class="form-control" id="contact" placeholder="Enter email" name="contact">
   </div>
-  <button type="submit" name="event-btn" id="event-btn" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" name="event-btn" id="event-btn">Submit</button>
   </form>
 </div>
 
-<div id="menu3" class="tab-pane fade"><br>
-  <?php
-    $sql2 = "SELECT `name`, `email`,`ddate`,`title`,`message` FROM `msgs`";
-    $result = mysqli_query($conn, $sql2);
-  ?>
-  <table class="table table-hover">
-  <tr><th>Name</th><th>Email</th><th>Date</th><th>Title</th><th>Message</th></tr>
-  <?php
-    while($event = mysqli_fetch_array($result)){
-      echo '<tr>';
-          echo '<td>'.$event['name'].'</td>';
-      echo '<td>'.$event['email'].'</td>';
-      echo '<td>'.$event['ddate'].'</td>';
-      echo '<td>'.$event['title'].'</td>';
-      echo '<td>'.$event['message'].'</td>';
-      echo '</tr>';
-    }
-  ?>
-  </table>
-</div>
-
-
-<div id="menu2" class="tab-pane fade"><br>
+<div id="menu2" class="container tab-pane fade"><br>
   <h4>All Registered Users</h4>
-  <?php
-    $sql = "SELECT `username`, `email` FROM `users`  ORDER BY `username` ASC";
-    $result = mysqli_query($conn, $sql);?>
-  <table class="table table-hover">
-  <tr><th>Username</th><th>Email</th></tr>
-  <?php
-    while($user = mysqli_fetch_array($result)){
-      echo '<tr>';
-          echo '<td>'.$user['username'].'</td>';
-      echo '<td>'.$user['email'].'</td>';
-      echo '</tr>';
-    }
-  ?>
-</table>
-</div>
-
+	<?php
+		$sql = "SELECT `username`, `email` FROM `users`  ORDER BY `username` ASC";
+		$result = mysqli_query($conn, $sql);?>
+	<table class="table table-hover">
+	<tr><th>Username</th><th>Email</th></tr>
+	<?php
+		while($user = mysqli_fetch_array($result)){
+			echo '<tr>';
+    			echo '<td>'.$user['username'].'</td>';
+			echo '<td>'.$user['email'].'</td>';
+			echo '</tr>';
+		}
+	?>
 </div>
 </div>
 </body>

@@ -1,11 +1,11 @@
 <?php
-require_once 'sendEmails.php';
+// require_once 'sendEmails.php';
 session_start();
 $username = "";
 $email = "";
 $errors = [];
 
-$conn = new mysqli('localhost', 'newuser', 'password', 'verifyuser');
+$conn = new mysqli('localhost', 'root', '', 'verifyuser');
 
 // SIGN UP USER
 if (isset($_POST['signup-btn'])) {
@@ -80,7 +80,7 @@ if (isset($_GET['logout'])) {
 	unset($_SESSION['username']);
 	unset($_SESSION['email']);
 	unset($_SESSION['verify']);
-	header("location: ../pages/login.php");
+	header("location: ./index.php");
 }
 
 function isAdmin()
@@ -120,11 +120,11 @@ if (isset($_POST['login-btn'])) {
                 $_SESSION['verified'] = $user['verified'];
                 $_SESSION['message'] = 'You are logged in!';
                 $_SESSION['type'] = 'alert-success';
-		$_SESSION['role'] = $user['role'];
+		        $_SESSION['role'] = $user['role'];
                 if ($_SESSION['role'] == 'admin'):
  	                header('location: ../pages/admin.php');
         	else:
-                	header('location: ../pages/user.php');
+                	header('location: ../index.php');
                 endif;
 
                 exit(0);
@@ -136,4 +136,28 @@ if (isset($_POST['login-btn'])) {
             $_SESSION['type'] = "alert-danger";
         }
     }
+}
+
+// UPDATE 
+if (isset($_POST['update-btn'])) {
+    $id = $_POST['id'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+
+    $query = "UPDATE users SET username=?, email=? WHERE id=$id";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param('ss', $username, $email);
+
+    $result = $stmt->execute();
+
+    if($result) {
+        $stmt->close();
+        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
+        $_SESSION['message'] = "User data has been updated!";
+        $_SESSION['type'] = "alert-warning";
+    } else {
+        $_SESSION['message'] = "Database error: Could not update user";
+    }
+    header('location: ../pages/user.php');
 }
