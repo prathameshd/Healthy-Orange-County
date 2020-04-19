@@ -1,3 +1,4 @@
+<?php include './php/authController.php' ?>
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
@@ -19,18 +20,33 @@
     <body>
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-md bg-info navbar-dark fixed-top">
-            <a class="navbar-brand" href="#">H.O.C.</a>
+            <a class="navbar-brand" href="#">Healthy Orange County</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link active" href="#">Home</a>
+                <a class="nav-item nav-link active" href="index.php">Home</a>
                 <a class="nav-item nav-link" href="#">About Us</a>
-                <a class="nav-item nav-link" href="#">Directory</a>
-                <a class="nav-item nav-link" href="#">Events</a>
-                <a class="nav-item nav-link" href="pages/contactus.php">Contact Us</a>
-                <a class="nav-item nav-link" href="pages/login.php">Login</a>
+                <a class="nav-item nav-link" href="./pages/directory.php">Directory</a>
+                <a class="nav-item nav-link" href="./pages/events.php">Events</a>
+                
+                <?php 
+                    if (!isLoggedIn()) { ?>
+                      <a class="nav-item nav-link" href="./pages/login.php">Login</a>
+                <?php } else { ?>
+
+                    <?php if (!isAdmin()) {?>
+                      <a class="nav-item nav-link" href="./pages/user.php">Profile</a>
+                      <a class="nav-item nav-link" href="./index.php?logout='1'">Logout</a>
+                  <?php  } else {?>
+                      <a class="nav-item nav-link" href="./pages/admin.php">Profile</a>
+                      <a class="nav-item nav-link" href="./index.php?logout='1'">Logout</a>
+                  <?php } 
+                  }
+                ?>
+
+
                 </div>
             </div>
         </nav>
@@ -46,21 +62,21 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" src="/images/carousel1.jpg" alt="First slide">
+                <img class="d-block w-100" src="./images/carousel1.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First</h5>
                     <p>...</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="/images/carousel2.jpg" alt="Second slide">
+                <img class="d-block w-100" src="./images/carousel2.jpg" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second</h5>
                     <p>...</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="/images/carousel3.jpg" alt="Third slide">
+                <img class="d-block w-100" src="./images/carousel3.jpg" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third</h5>
                     <p>...</p>
@@ -91,36 +107,19 @@
                   <h5 class="text-uppercase">Quick Links</h5>
                   <ul class="list-unstyled">
                     <li>
-                      <a href="#!">Home</a>
+                      <a href="index.php">Home</a>
                     </li>
                     <li>
-                      <a href="#!">About Us</a>
+                      <a href="#">About Us</a>
                     </li>
                     <li>
-                      <a href="#!">Directory</a>
+                      <a href="#">Directory</a>
                     </li>
                     <li>
-                      <a href="#!">Events</a>
+                      <a href="./pages/events.php">Events</a>
                     </li>
                   </ul>
                 </div>
-                <!-- <div class="col-md-3 mb-md-0 mb-3">
-                  <h5 class="text-uppercase">Links</h5>
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                      <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                      <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                      <a href="#!">Link 4</a>
-                    </li>
-                  </ul>
-                </div> -->
               </div>
             </div>
             <div class="footer-copyright text-center py-3">© 2020 Copyright:
