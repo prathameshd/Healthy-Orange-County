@@ -2,17 +2,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="../css/main.css">
-  <title>User verification system PHP</title>
+  <title>Sign Up</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div class="container">
+<br>
+
+<div class="container">
+            <nav class="navbar navbar-expand-md bg-info navbar-dark fixed-top">
+                <a class="navbar-brand" href="#">Healthy Orange County</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link active" href="../index.php">Home</a>
+                    <a class="nav-item nav-link" href="#">About Us</a>
+                    <a class="nav-item nav-link" href="./directory.php">Directory</a>
+                    <a class="nav-item nav-link" href="./events.php">Events</a>
+                    <a class="nav-item nav-link" href="./contactus.php">Contact Us</a>
+                    <?php 
+                        if (!isLoggedIn()) { ?>
+                        <a class="nav-item nav-link" href="./login.php">Login</a>
+                    <?php } else { ?>
+
+                        <?php if (!isAdmin()) {?>
+                        <a class="nav-item nav-link" href="./user.php">Profile</a>
+                        <a class="nav-item nav-link" href="../index.php?logout='1'">Logout</a>
+                    <?php  } else {?>
+                        <a class="nav-item nav-link" href="./admin.php">Profile</a>
+                        <a class="nav-item nav-link" href="./index.php?logout='1'">Logout</a>
+                    <?php } ?>
+                    <?php    }
+                    ?>
+                    </div>
+                </div>
+            </nav>
+<br>  
+ 
+<div class="container" style="margin-top: 50px">
     <div class="row">
       <div class="col-md-4 offset-md-4 form-wrapper auth">
         <h3 class="text-center form-title">Register</h3>
