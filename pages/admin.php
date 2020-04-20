@@ -19,6 +19,38 @@ if (!isAdmin()) {
 <br>
 
 <div class="container">
+            <nav class="navbar navbar-expand-md bg-info navbar-dark fixed-top">
+                <a class="navbar-brand" href="#">Healthy Orange County</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link active" href="../index.php">Home</a>
+                    <a class="nav-item nav-link" href="#">About Us</a>
+                    <a class="nav-item nav-link" href="./directory.php">Directory</a>
+                    <a class="nav-item nav-link" href="./events.php">Events</a>
+                    <a class="nav-item nav-link" href="./contactus.php">Contact Us</a>
+                    <?php 
+                        if (!isLoggedIn()) { ?>
+                        <a class="nav-item nav-link" href="./login.php">Login</a>
+                    <?php } else { ?>
+
+                        <?php if (!isAdmin()) {?>
+                        <a class="nav-item nav-link" href="./user.php">Profile</a>
+                        <a class="nav-item nav-link" href="../index.php?logout='1'">Logout</a>
+                    <?php  } else {?>
+                        <a class="nav-item nav-link" href="./admin.php">Profile</a>
+                        <a class="nav-item nav-link" href="./index.php?logout='1'">Logout</a>
+                    <?php } ?>
+                    <?php    }
+                    ?>
+                    </div>
+                </div>
+            </nav>
+<br>  
+ 
+<div class="container" style="margin-top: 50px">
   <h2>Welcome Admin</h2>
   <br>
   <!-- Nav tabs -->
@@ -30,12 +62,11 @@ if (!isAdmin()) {
       <a class="nav-link" data-toggle="tab" href="#menu1">Create New Event</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu3">Messages</a>
+    </li>  
+    <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu2">Users</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="admin.php?logout='1'">Logout</a>
-    </li>
-
   </ul>
 
 <!-- Tab panes -->
@@ -82,6 +113,27 @@ if (!isAdmin()) {
   </div>
   <button type="submit" class="btn btn-primary" name="event-btn" id="event-btn">Submit</button>
   </form>
+</div>
+
+<div id="menu3" class="tab-pane fade"><br>
+  <?php
+    $sql2 = "SELECT `name`, `email`,`ddate`,`title`,`message` FROM `msgs`";
+    $result = mysqli_query($conn, $sql2);
+  ?>
+  <table class="table table-hover">
+  <tr><th>Name</th><th>Email</th><th>Date</th><th>Title</th><th>Message</th></tr>
+  <?php
+    while($event = mysqli_fetch_array($result)){
+      echo '<tr>';
+          echo '<td>'.$event['name'].'</td>';
+      echo '<td>'.$event['email'].'</td>';
+      echo '<td>'.$event['ddate'].'</td>';
+      echo '<td>'.$event['title'].'</td>';
+      echo '<td>'.$event['message'].'</td>';
+      echo '</tr>';
+    }
+  ?>
+  </table>
 </div>
 
 <div id="menu2" class="container tab-pane fade"><br>

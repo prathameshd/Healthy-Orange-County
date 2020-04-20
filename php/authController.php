@@ -1,11 +1,11 @@
 <?php
-// require_once 'sendEmails.php';
+//require_once 'sendEmails.php';
 session_start();
 $username = "";
 $email = "";
 $errors = [];
 
-$conn = new mysqli('localhost', 'root', '', 'verifyuser');
+$conn = new mysqli('localhost', 'newuser', 'password', 'verifyuser');
 
 // SIGN UP USER
 if (isset($_POST['signup-btn'])) {
@@ -80,7 +80,7 @@ if (isset($_GET['logout'])) {
 	unset($_SESSION['username']);
 	unset($_SESSION['email']);
 	unset($_SESSION['verify']);
-	header("location: ./index.php");
+	header("location: index.php");
 }
 
 function isAdmin()

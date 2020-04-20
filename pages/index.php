@@ -1,4 +1,4 @@
-<?php include './php/authController.php' ?>
+<?php include '../php/authController.php' ?>
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
@@ -28,19 +28,19 @@
                 <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link active" href="index.php">Home</a>
                 <a class="nav-item nav-link" href="#">About Us</a>
-                <a class="nav-item nav-link" href="./pages/directory.php">Directory</a>
-                <a class="nav-item nav-link" href="./pages/events.php">Events</a>
-                <a class="nav-item nav-link" href="./pages/contactus.php">Contact Us</a>
+                <a class="nav-item nav-link" href="./directory.php">Directory</a>
+                <a class="nav-item nav-link" href="./events.php">Events</a>
+                <a class="nav-item nav-link" href="./contactus.php">Contact Us</a>
                 <?php 
                     if (!isLoggedIn()) { ?>
-                      <a class="nav-item nav-link" href="./pages/login.php">Login</a>
+                      <a class="nav-item nav-link" href="./login.php">Login</a>
                 <?php } else { ?>
 
                     <?php if (!isAdmin()) {?>
-                      <a class="nav-item nav-link" href="./pages/user.php">Profile</a>
+                      <a class="nav-item nav-link" href="./user.php">Profile</a>
                       <a class="nav-item nav-link" href="./index.php?logout='1'">Logout</a>
                   <?php  } else {?>
-                      <a class="nav-item nav-link" href="./pages/admin.php">Profile</a>
+                      <a class="nav-item nav-link" href="./admin.php">Profile</a>
                       <a class="nav-item nav-link" href="./index.php?logout='1'">Logout</a>
                   <?php } 
                   }
@@ -62,21 +62,21 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" src="./images/carousel1.jpg" alt="First slide">
+                <img class="d-block w-100" src="../images/carousel1.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First</h5>
                     <p>...</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="./images/carousel2.jpg" alt="Second slide">
+                <img class="d-block w-100" src="../images/carousel2.jpg" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second</h5>
                     <p>...</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="./images/carousel3.jpg" alt="Third slide">
+                <img class="d-block w-100" src="../images/carousel3.jpg" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third</h5>
                     <p>...</p>
