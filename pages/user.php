@@ -88,7 +88,10 @@
 
 <div class="container" style="margin-top: 75px">
   <h2>Hello <?php echo $_SESSION['username']; ?> !!</h2>
-  <br>
+  <?php if(isVerified()){ echo "<i><b>Verified</b></i>";
+  } else { echo "<i>Unverified(Check your email)</i>";
+  } ?>
+  <br><br>
   <!-- Nav tabs -->
 
   <!-- Update form  -->

@@ -1,5 +1,5 @@
 <?php
-//require_once 'sendEmails.php';
+require_once ($_SERVER['DOCUMENT_ROOT'].'/InfoWeb/php/sendEmails.php');
 session_start();
 $username = "";
 $email = "";
@@ -160,4 +160,12 @@ if (isset($_POST['update-btn'])) {
         $_SESSION['message'] = "Database error: Could not update user";
     }
     header('location: ../pages/user.php');
+}
+
+function isVerified()
+{
+        if($_SESSION['verified'] == 1)
+                return true;
+        else
+                return false;
 }
