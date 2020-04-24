@@ -23,14 +23,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active" href="../index.php">Home</a>
+                    <a class="nav-item nav-link " href="../index.php">Home</a>
                     <a class="nav-item nav-link" href="#">About Us</a>
                     <a class="nav-item nav-link" href="./directory.php">Directory</a>
                     <a class="nav-item nav-link" href="./events.php">Events</a>
                     <a class="nav-item nav-link" href="./contactus.php">Contact Us</a>
                     <?php 
                         if (!isLoggedIn()) { ?>
-                        <a class="nav-item nav-link" href="./login.php">Login</a>
+                        <a class="nav-item nav-link active" href="./login.php">Login</a>
                     <?php } else { ?>
 
                         <?php if (!isAdmin()) {?>

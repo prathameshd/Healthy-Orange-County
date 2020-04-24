@@ -27,7 +27,7 @@ if (!isAdmin()) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active" href="../index.php">Home</a>
+                    <a class="nav-item nav-link " href="../index.php">Home</a>
                     <a class="nav-item nav-link" href="#">About Us</a>
                     <a class="nav-item nav-link" href="./directory.php">Directory</a>
                     <a class="nav-item nav-link" href="./events.php">Events</a>
@@ -38,11 +38,11 @@ if (!isAdmin()) {
                     <?php } else { ?>
 
                         <?php if (!isAdmin()) {?>
-                        <a class="nav-item nav-link" href="./user.php">Profile</a>
+                        <a class="nav-item nav-link active" href="./user.php">Profile</a>
                         <a class="nav-item nav-link" href="../index.php?logout='1'">Logout</a>
                     <?php  } else {?>
-                        <a class="nav-item nav-link" href="./admin.php">Profile</a>
-                        <a class="nav-item nav-link" href="./index.php?logout='1'">Logout</a>
+                        <a class="nav-item nav-link active" href="./admin.php">Profile</a>
+                        <a class="nav-item nav-link" href="../index.php?logout='1'">Logout</a>
                     <?php } ?>
                     <?php    }
                     ?>
