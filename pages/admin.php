@@ -11,6 +11,7 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Girassol&family=Lobster&display=swap" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -19,17 +20,17 @@
 <body>
    <div class="container">
       <nav class="test navbar navbar-expand-md bg-info navbar-dark fixed-top">
-         <a class="navbar-brand" href="#">Healthy Orange County</a>
+         <a class="navbar-brand" href="../index.php">Healthy Orange County</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
                <a class="nav-item nav-link " href="../index.php">Home</a>
-               <a class="nav-item nav-link" href="#">About Us</a>
+               <a class="nav-item nav-link" href="./aboutus.php">About</a>
                <a class="nav-item nav-link" href="./directory.php">Directory</a>
                <a class="nav-item nav-link" href="./events.php">Events</a>
-               <a class="nav-item nav-link" href="./contactus.php">Contact Us</a>
+               <a class="nav-item nav-link" href="./contactus.php">Contact</a>
                <?php if (!isLoggedIn()) { ?>
                <a class="nav-item nav-link" href="./login.php">Login</a>
                <?php } else { ?>

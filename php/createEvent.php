@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "newuser";
-$password = "password";
+$username = "root";
+$password = "";
 $dbname = "verifyuser";
 
     if (empty($_POST['title'])) {
