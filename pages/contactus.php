@@ -63,7 +63,6 @@
       </div>
    </nav>
    <br><br>
-   
    <div class="container" style="margin-top: 50px">
    <!-- contact us form goes here-->
       <h2>Contact Us</h2>
@@ -73,7 +72,19 @@
             <h5>Get in touch using the attached form or via email: healthyorangecountyin@gmail.com</h5>
          </div>
          <div class="column">
-            <form action="../php/contactmsgs.php" method="POST">
+            <form action="contactus.php" method="POST">
+               <?php if (count($errors) > 0): ?>
+               <div class="alert alert-danger">
+                  <?php foreach ($errors as $error): ?>
+                  <li> <?php echo $error; ?> </li>
+                  <?php endforeach;?>
+               </div>
+               <?php endif;?>
+               <?php if ($success > 0): ?>
+               <div class="alert alert-success"
+                  <li> <?php echo "Message Sent!" ?> </li>
+               </div>
+               <?php endif;?>
                <div class="form-group">
                   <label for="name">Name:</label>
                   <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
@@ -94,12 +105,13 @@
                   <label for="message">Message</label>
                   <textarea class="form-control" rows="5" id="message" name="message"></textarea>
                </div>
-               <button type="submit" name="event-btn" id="event-btn" class="btn btn-primary">Submit</button>
+               <button type="submit" name="contact-btn" id="contact-btn" class="btn btn-primary">Submit</button>
             </form>
          </div>
       </div>
    </div>
-   <footer class="page-footer font-small success pt-4" style="padding-top: 0px !important;">
+<br><br>
+   <footer class="page-footer font-small success pt-4 fixed-bottom" style="padding-top: 0px !important;">
       <div class="footer-copyright text-center py-3">© 2020 Copyright:
          <a href="index.php" style="color: chocolate !important">Healthy Orange County</a>
       </div>

@@ -58,7 +58,7 @@
          </div>
       </div>
    </div>
-   <footer class="page-footer font-small success pt-4" style="padding-top: 0px !important;">
+   <footer class="page-footer font-small success pt-4 fixed-bottom" style="padding-top: 0px !important;">
       <div class="footer-copyright text-center py-3">© 2020 Copyright:
          <a href="index.php" style="color: chocolate !important">Healthy Orange County</a>
       </div>
