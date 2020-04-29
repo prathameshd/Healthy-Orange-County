@@ -38,7 +38,7 @@
             <a class="nav-item nav-link" href="../index.php?logout='1'">Logout</a>
             <?php  } else {?>
             <a class="nav-item nav-link" href="admin.php">Profile</a>
-            <a class="nav-item nav-link" href="./index.php?logout='1'">Logout</a>
+            <a class="nav-item nav-link" href="../index.php?logout='1'">Logout</a>
             <?php } ?>
             <?php } ?>
          </div>
@@ -100,5 +100,10 @@
          });
       </script>
    </div>
+   <footer class="page-footer font-small success pt-4" style="padding-top: 0px !important;">
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+         <a href="index.php" style="color: chocolate !important">Healthy Orange County</a>
+      </div>
+   </footer>
 </body>
 </html>

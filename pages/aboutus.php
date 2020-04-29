@@ -87,12 +87,12 @@
 
    <div class="container" style="margin-top: 100px;">
       <div class="row">
-         <div class="column">
+         <div class="col-sm-6">
             <h2>Our Inspiration</h2>
             <h5 style="margin-top: 40px;">This idea was born from the desire for local people in Orange County to have one place they could go, or refer another, that hosts all of the health and wellness services/ providers within the county.</h5><br>
             <h5>We know people are looking for this information, but don’t know where to find it, and we know that there are many services being offered in this small community ranging from medical care to supplemental care, such as massages or Zumba class, but not everyone knows where to find it.</h5>
          </div>
-         <div class="column">
+         <div class="col-sm-6">
             <h2>Why Healthy Orange County?</h2>
             <h5 style="margin-top: 40px;">We want everyone to have access to all the services they are looking for that would assist in taking care of themselves physically, mentally, and emotionally. There are many individuals and families looking for the resources they need and, in an effort to promote healthy living, we will provide it for them.</h5>
          </div>
@@ -107,35 +107,9 @@
 
 
    <!-- Footer -->
-   <footer class="page-footer font-small success pt-4">
-      <div class="container-fluid text-center text-md-left">
-         <div class="row">
-            <div class="col-md-6 mt-md-0 mt-3">
-               <h5 class="text-uppercase">Healthy Orange County</h5>
-               <p></p>
-            </div>
-            <hr class="clearfix w-100 d-md-none pb-3">
-            <div class="col-md-6 mb-md-0 mb-3">
-               <h5 class="text-uppercase">Quick Links</h5>
-               <ul class="list-unstyled">
-                  <li>
-                     <a href="../index.php">Home</a>
-                  </li>
-                  <li>
-                     <a href="./aboutus.php">About Us</a>
-                  </li>
-                  <li>
-                     <a href="./directory.php">Directory</a>
-                  </li>
-                  <li>
-                     <a href="./events.php">Events</a>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </div>
+   <footer class="page-footer font-small success pt-4" style="padding-top: 0px !important;">
       <div class="footer-copyright text-center py-3">© 2020 Copyright:
-         <a href="../index.php">Healthy Orange County</a>
+         <a href="index.php" style="color: chocolate !important">Healthy Orange County</a>
       </div>
    </footer>
 </body>

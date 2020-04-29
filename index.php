@@ -74,35 +74,35 @@
     <div class="header-content text-md-center">
       <h1>Welcome Everyone</h1>
       <p>Healthy Orange County showcases events and provides links to directories to help you find health professionals, services and facilities.</p>
-      <a class="btn btn-primary" href="#content">Find Out More</a>
+      <a class="btn btn-success" href="#content">Find Out More</a>
     </div>
   </header>
 
 
 <!-- Home content -->
-   <div style="margin: 40px;" id="content">
-      <div class="card mb-3 bg-light" >
+   <div style="" id="content">
+      <div class="card mb-3 bg-light maincard">
          <div class="row no-gutters">
             <div class="col-md-6">
               <img src="./images/carousel3.jpg" class="card-img" alt="...">
             </div>
             <div class="col-md-6">
-              <div class="card-body">
-                <h4 class="card-title">Healthy Orange County</h4>
+              <div class="card-body" style="padding: 80px !important;">
+                <h3 class="card-title">Healthy Orange County</h3>
                 <p class="card-text">We connect you to the right providers who can help you with your needs. From traditional medicine to support groups to nutrition to life coaching, our directory has the services you are looking for in Orange County. You can select the category of service that you require. If you don't see what you are looking for, try filtering by subcategory to narrow the results further.</p>
-                <a href="./pages/directory.php" class="btn btn-primary">Directory</a>
+                <a href="./pages/directory.php" class="btn btn-outline-success" style="float: right;">Directory</a>
               </div>
             </div>
          </div>
       </div> 
 
-      <div class="card mb-3 bg-light" >
+      <div class="card mb-3 bg-light maincard">
          <div class="row no-gutters">
             <div class="col-md-6">
-              <div class="card-body">
-                <h4 class="card-title">Attend Local Events</h4>
+              <div class="card-body" style="padding: 80px !important;">
+                <h3 class="card-title">Attend Local Events</h3>
                 <p class="card-text">View the events page for local gatherings in the Orange County area and plan for a fun day of community bonding. Featured events include farmers markets, food festivals, county parades and much more. Click here to make new friends and join the community!</p>
-                <a href="./pages/events.php" class="btn btn-primary">Events</a>
+                <a href="./pages/events.php" class="btn btn-outline-success" style="float: right;">Events</a>
               </div>
             </div>
             <div class="col-md-6">
@@ -111,16 +111,16 @@
          </div>
       </div> 
 
-      <div class="card mb-3 bg-light" >
+      <div class="card mb-3 bg-light maincard">
          <div class="row no-gutters">
             <div class="col-md-6">
               <img src="./images/carousel1.jpg" class="card-img" alt="...">
             </div>
             <div class="col-md-6">
-              <div class="card-body">
-                <h4 class="card-title">About us</h4>
+              <div class="card-body" style="padding: 80px !important;">
+                <h3 class="card-title">About us</h3>
                 <p class="card-text">Click here to learn more about the great minds behind the Healthy Orange County and how they were inspired to develop this resource for the Orange County community.</p>
-                <a href="./pages/directory.php" class="btn btn-primary">Learn More</a>
+                <a href="./pages/directory.php" class="btn btn-outline-success" style="float: right;">Learn More</a>
               </div>
             </div>
          </div>
@@ -131,35 +131,9 @@
 
 
    <!-- Footer -->
-   <footer class="page-footer font-small success pt-4">
-      <div class="container-fluid text-center text-md-left">
-         <div class="row">
-            <div class="col-md-6 mt-md-0 mt-3">
-               <h5 class="text-uppercase">Healthy Orange County</h5>
-               <p></p>
-            </div>
-            <hr class="clearfix w-100 d-md-none pb-3">
-            <div class="col-md-6 mb-md-0 mb-3">
-               <h5 class="text-uppercase">Quick Links</h5>
-               <ul class="list-unstyled">
-                  <li>
-                     <a href="index.php">Home</a>
-                  </li>
-                  <li>
-                     <a href="./pages/aboutus.php">About Us</a>
-                  </li>
-                  <li>
-                     <a href="./pages/directory.php">Directory</a>
-                  </li>
-                  <li>
-                     <a href="./pages/events.php">Events</a>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </div>
+   <footer class="page-footer font-small success pt-4" style="padding-top: 0px !important;">
       <div class="footer-copyright text-center py-3">© 2020 Copyright:
-         <a href="index.php">Healthy Orange County</a>
+         <a href="index.php" style="color: chocolate !important">Healthy Orange County</a>
       </div>
    </footer>
 </body>
