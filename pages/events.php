@@ -4,6 +4,25 @@
       header('location: login.php');
    }
 ?>
+<?php
+
+   if (isset($_POST['book-btn'])) {
+      echo $ThisID;
+      //BookFunction();
+   }
+
+   function BookFunction() {
+      $userid = getUserID();
+      $eventid = $event['id'];
+      $sql = "INSERT INTO rsvp (userid, eventid) VALUES ('$userid' , '$eventid')";
+      if (mysqli_query($conn, $sql)) {
+         echo "New record created successfully";
+      } else {
+         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      }
+   }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +37,7 @@
    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-   <nav class="test navbar navbar-expand-md bg-info navbar-dark fixed-top" >
+<!--   <nav class="test navbar navbar-expand-md bg-info navbar-dark fixed-top" >
       <a class="navbar-brand" href="../index.php">Healthy Orange County</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
@@ -43,7 +62,7 @@
             <?php } ?>
          </div>
       </div>
-   </nav>
+   </nav> -->
    <br><br>
    <div class="container" style="margin-top: 50px">
       <h2>Events</h2>
@@ -60,18 +79,22 @@
             <div id="spinner" class="spinner-border" style="display: none;"></div>
                <div class="card-columns" id="events">
                   <?php
-                     $sql2 = "SELECT `title`, `description`,`contact`,`ddate` FROM `allevents`";
+                     $sql2 = "SELECT `id`, `title`, `description`,`contact`,`ddate` FROM `allevents`";
                      $result = mysqli_query($conn, $sql2);
                      while($event = mysqli_fetch_array($result)){
                    ?>
+                  <form  method = "POST">
                   <div class="card" style="width: 18rem; margin: 20px;">
                      <div class="card-body">
                         <h5 class="card-title"><?php echo $event['title']; ?></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><?php echo $event['ddate']; ?></h6>
                         <p class="card-text"><?php echo $event['description']; ?></p>
-                        <a href="../php/rsvp.php" class="btn btn-outline-success">Bookmark</a>
+                        <!-- <a href="../php/rsvp.php" class="btn btn-outline-success">Bookmark</a> -->
+                        <?php ThisID($event['id']); ?>
+                        <button type="submit" name="book-btn" id="book-btn" class="btn btn-outline-success">Bookmark</button>
                      </div>
                   </div>
+                  </form>
                   <?php }
                         if (!$result) {
                            printf("Error: %s\n", mysqli_error($conn));
