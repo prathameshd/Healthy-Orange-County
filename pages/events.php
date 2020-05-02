@@ -7,7 +7,8 @@
 <?php
 
    if (isset($_POST['book-btn'])) {
-      echo $ThisID;
+      echo "       ";
+      echo $_POST['book-btn'];
       //BookFunction();
    }
 
@@ -90,8 +91,7 @@
                         <h6 class="card-subtitle mb-2 text-muted"><?php echo $event['ddate']; ?></h6>
                         <p class="card-text"><?php echo $event['description']; ?></p>
                         <!-- <a href="../php/rsvp.php" class="btn btn-outline-success">Bookmark</a> -->
-                        <?php ThisID($event['id']); ?>
-                        <button type="submit" name="book-btn" id="book-btn" class="btn btn-outline-success">Bookmark</button>
+                        <button type="submit" value = "<?php echo $event['id']; ?>" name="book-btn" id="book-btn" class="btn btn-outline-success">Bookmark</button>
                      </div>
                   </div>
                   </form>
