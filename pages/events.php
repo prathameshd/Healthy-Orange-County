@@ -3,23 +3,21 @@
       $_SESSION['msg'] = "You must log in first";
       header('location: login.php');
    }
-?>
-<?php
-
    if (isset($_POST['book-btn'])) {
-      echo "       ";
-      echo $_POST['book-btn'];
-      //BookFunction();
-   }
-
-   function BookFunction() {
       $userid = getUserID();
-      $eventid = $event['id'];
-      $sql = "INSERT INTO rsvp (userid, eventid) VALUES ('$userid' , '$eventid')";
-      if (mysqli_query($conn, $sql)) {
-         echo "New record created successfully";
-      } else {
-         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      $eventid = $_POST['book-btn'];
+      $sql = "SELECT * FROM rsvp WHERE userid ='$userid' AND eventid = '$eventid' LIMIT 1";
+      $result = mysqli_query($conn, $sql);
+      if (mysqli_num_rows($result) > 0) {
+         $errors['event'] = "Event already bookmarked";
+      }
+      if (count($errors) === 0) {
+         $sql = "INSERT INTO rsvp (userid, eventid) VALUES ('$userid' , '$eventid')";
+         if (mysqli_query($conn, $sql)) {
+            //echo "New record created successfully";
+         } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+         }
       }
    }
 ?>
@@ -38,7 +36,7 @@
    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<!--   <nav class="test navbar navbar-expand-md bg-info navbar-dark fixed-top" >
+   <nav class="test navbar navbar-expand-md bg-info navbar-dark fixed-top" >
       <a class="navbar-brand" href="../index.php">Healthy Orange County</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
@@ -63,7 +61,7 @@
             <?php } ?>
          </div>
       </div>
-   </nav> -->
+   </nav>
    <br><br>
    <div class="container" style="margin-top: 50px">
       <h2>Events</h2>
@@ -78,6 +76,13 @@
       <div class="tab-content">
          <div id="home" class="tab-pane active"><br>
             <div id="spinner" class="spinner-border" style="display: none;"></div>
+               <?php if (count($errors) > 0): ?>
+               <div class="alert alert-danger">
+                  <?php foreach ($errors as $error): ?>
+                  <li> <?php echo $error; ?> </li>
+                  <?php endforeach;?>
+               </div>
+               <?php endif;?>
                <div class="card-columns" id="events">
                   <?php
                      $sql2 = "SELECT `id`, `title`, `description`,`contact`,`ddate` FROM `allevents`";
@@ -123,6 +128,7 @@
          });
       </script>
    </div>
+   <br><br><br>
    <footer class="page-footer font-small success pt-4 fixed-bottom" style="padding-top: 0px !important;">
       <div class="footer-copyright text-center py-3">© 2020 Copyright:
          <a href="index.php" style="color: chocolate !important">Healthy Orange County</a>
