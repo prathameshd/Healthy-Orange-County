@@ -46,3 +46,8 @@ CREATE TABLE rsvp(
 # Hard Coded Admin:
 INSERT INTO users(id, username, email, verified, password, role) 
 	    values(0, 'admin', 'healthyorangecountyin@gmail.com', 1, 'admin', 'admin');
+
+# References:
+User Registeration and Email Verification-
+	http://codewithawa.com/posts/user-registration-and-email-verification-php-and-mysql
+
