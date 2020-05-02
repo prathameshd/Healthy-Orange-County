@@ -3,7 +3,25 @@
       $_SESSION['msg'] = "You must log in first";
       header('location: login.php');
    }
+   if (isset($_POST['book-btn'])) {
+      $userid = getUserID();
+      $eventid = $_POST['book-btn'];
+      $sql = "SELECT * FROM rsvp WHERE userid ='$userid' AND eventid = '$eventid' LIMIT 1";
+      $result = mysqli_query($conn, $sql);
+      if (mysqli_num_rows($result) > 0) {
+         $errors['event'] = "Event already bookmarked";
+      }
+      if (count($errors) === 0) {
+         $sql = "INSERT INTO rsvp (userid, eventid) VALUES ('$userid' , '$eventid')";
+         if (mysqli_query($conn, $sql)) {
+            //echo "New record created successfully";
+         } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+         }
+      }
+   }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,20 +76,30 @@
       <div class="tab-content">
          <div id="home" class="tab-pane active"><br>
             <div id="spinner" class="spinner-border" style="display: none;"></div>
+               <?php if (count($errors) > 0): ?>
+               <div class="alert alert-danger">
+                  <?php foreach ($errors as $error): ?>
+                  <li> <?php echo $error; ?> </li>
+                  <?php endforeach;?>
+               </div>
+               <?php endif;?>
                <div class="card-columns" id="events">
                   <?php
-                     $sql2 = "SELECT `title`, `description`,`contact`,`ddate` FROM `allevents`";
+                     $sql2 = "SELECT `id`, `title`, `description`,`contact`,`ddate` FROM `allevents`";
                      $result = mysqli_query($conn, $sql2);
                      while($event = mysqli_fetch_array($result)){
                    ?>
+                  <form  method = "POST">
                   <div class="card" style="width: 18rem; margin: 20px;">
                      <div class="card-body">
                         <h5 class="card-title"><?php echo $event['title']; ?></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><?php echo $event['ddate']; ?></h6>
                         <p class="card-text"><?php echo $event['description']; ?></p>
-                        <a href="#" class="btn btn-outline-success">Bookmark</a>
+                        <!-- <a href="../php/rsvp.php" class="btn btn-outline-success">Bookmark</a> -->
+                        <button type="submit" value = "<?php echo $event['id']; ?>" name="book-btn" id="book-btn" class="btn btn-outline-success">Bookmark</button>
                      </div>
                   </div>
+                  </form>
                   <?php }
                         if (!$result) {
                            printf("Error: %s\n", mysqli_error($conn));

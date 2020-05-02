@@ -72,27 +72,28 @@
    <div class="container" style="margin-top: 7%">
       <h2>My Events</h2>
       <br>
-      <div class="card-deck">
-         <div class="card bg-primary">
-            <div class="card-body text-center">
-               <p class="card-text">Some text inside the first card</p>
+      <div class="card-columns" id="events">
+         <?php
+            $userid = getUserID();
+            $sql2 = "SELECT allevents.title, allevents.description, allevents.contact, allevents.ddate FROM rsvp INNER JOIN allevents ON rsvp.eventid = allevents.id WHERE rsvp.userid = $userid";
+            $result = mysqli_query($conn, $sql2);
+            while($event = mysqli_fetch_array($result)){
+          ?>
+         <form  method = "POST">
+            <div class="card" style="width: 18rem; margin: 20px;">
+               <div class="card-body">
+                  <h5 class="card-title"><?php echo $event['title']; ?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?php echo $event['ddate']; ?></h6>
+                  <p class="card-text"><?php echo $event['description']; ?></p>
+               </div>
             </div>
-         </div>
-         <div class="card bg-warning">
-            <div class="card-body text-center">
-               <p class="card-text">Some text inside the second card</p>
-            </div>
-         </div>
-         <div class="card bg-success">
-            <div class="card-body text-center">
-               <p class="card-text">Some text inside the third card</p>
-            </div>
-         </div>
-         <div class="card bg-danger">
-            <div class="card-body text-center">
-               <p class="card-text">Some text inside the fourth card</p>
-            </div>
-         </div>
+         </form>
+         <?php }
+            if (!$result) {
+               printf("Error: %s\n", mysqli_error($conn));
+               exit();
+            }
+          ?>
       </div>
    </div>
    <br>

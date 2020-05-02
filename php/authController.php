@@ -83,6 +83,10 @@
       }
    }
 
+   function getUserID() {
+      return $_SESSION['id'];
+   }
+
    // LOGIN
    if (isset($_POST['login-btn'])) {
        if (empty($_POST['username'])) {
