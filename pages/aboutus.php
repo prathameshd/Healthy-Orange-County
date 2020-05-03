@@ -101,8 +101,42 @@
 
    <div class="container" style="margin-top: 100px;">
       <h3>Key Contributors</h3>
-          
-   </div>  
+      <div class="row" style="margin-top: 5%;">
+        <div class="col-sm-4">
+        <div class="card" style="width:300px;pointer-events:none;">
+        <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
+        </div>
+        </div>
+        <div class="col-sm-4">
+        <div class="card" style="width:300px;pointer-events:none;">
+        <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
+        </div>
+        </div>
+        <div class="col-sm-4">
+        <div class="card" style="width:300px;pointer-events:none;">
+        <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
+        </div>
+        </div>
+      </div>  
+
+      <div class="row" style="margin-top: 5%;">
+        <div class="col-sm-4">
+        <div class="card" style="width:300px;pointer-events:none;">
+        <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
+        </div>
+        </div>
+        <div class="col-sm-4">
+        <div class="card" style="width:300px;pointer-events:none;">
+        <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
+        </div>
+        </div>
+        <div class="col-sm-4">
+        <div class="card" style="width:300px;pointer-events:none;">
+        <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
+        </div>
+        </div>
+      </div>  
+ </div>
 
 
 
