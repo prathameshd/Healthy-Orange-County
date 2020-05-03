@@ -121,11 +121,11 @@
               <div class="card-body" style="padding: 80px !important;">
                 <h3 class="card-title">About us</h3>
                 <p class="card-text">Click here to learn more about the great minds behind the Healthy Orange County and how they were inspired to develop this resource for the Orange County community.</p>
-                <a href="./pages/directory.php" class="btn btn-outline-success" style="float: right;">Learn More</a>
+                <a href="./pages/aboutus.php" class="btn btn-outline-success" style="float: right;">Learn More</a>
               </div>
             </div>
          </div>
-      </div>          
+      </div>
    </div>
 
 
