@@ -95,7 +95,6 @@
                         <h5 class="card-title"><?php echo $event['title']; ?></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><?php echo $event['ddate']; ?></h6>
                         <p class="card-text"><?php echo $event['description']; ?></p>
-                        <!-- <a href="../php/rsvp.php" class="btn btn-outline-success">Bookmark</a> -->
                         <button type="submit" value = "<?php echo $event['id']; ?>" name="book-btn" id="book-btn" class="btn btn-outline-success">Bookmark</button>
                      </div>
                   </div>
