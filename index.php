@@ -72,9 +72,10 @@
     </div>
     <div class="header-overlay"></div>
     <div class="header-content text-md-center">
-      <h1>Welcome Everyone</h1>
-      <p>Healthy Orange County showcases events and provides links to directories to help you find health professionals, services and facilities.</p>
-      <a class="btn btn-success" href="#content">Find Out More</a>
+      <h1>Welcome to Healthy Orange County</h1>
+      <br>
+      <p>Healthy Orange County provides resources to help you find health professionals, services and facilities. We also organize and showcase events for social welfare.</p>
+      <a class="btn btn-success" href="#content">Find Out More About Us</a>
     </div>
   </header>
 

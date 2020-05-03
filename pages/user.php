@@ -49,11 +49,16 @@
    </div>
    <br><br>
    <div class="container" style="margin-top: 50px">
-      <h2>Hello <?php echo $_SESSION['username']; ?> !!</h2>
+      <h2>Hello <?php echo $_SESSION['username']; ?></h2>
       <?php if(isVerified()){ echo "<i><b>Verified</b></i>";
             } else { echo "<i>Unverified(Check your email)</i>";
             } ?>
       <br><br>
+      <div class="row">
+            <div class="col-sm-2">
+      <img src="../images/avatar.png" class="img-thumbnail" alt="Cinque Terre">
+</div>
+      <div class="col-sm-9">
       <!-- Update form  -->
       <form action="user.php" method="POST">
          <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
@@ -65,12 +70,15 @@
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" value="<?php echo $_SESSION['email']; ?>" name="email">
          </div>
-         <button type="submit" name="update-btn" class="btn btn-outline-warning">Update</button>
+         <button type="submit" name="update-btn" class="btn btn-outline-success">Update</button>
       </form>
+   </div>
+
+</div>
    </div>
    <!-- Sample event cards -->
    <div class="container" style="margin-top: 7%">
-      <h2>My Events</h2>
+      <h2>Saved Events</h2>
       <br>
       <div class="card-columns" id="events">
          <?php

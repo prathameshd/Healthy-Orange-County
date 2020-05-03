@@ -21,7 +21,7 @@
 
         .image-text h3 {
             margin-top: 60px;
-            font-weight: 900;
+            /*font-weight: 900;*/
         }
 
         .column {
