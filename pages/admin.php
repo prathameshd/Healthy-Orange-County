@@ -88,7 +88,6 @@
          </div>
          <div id="menu1" class="tab-pane fade"><br>
             <!-- create event form goes here-->
-            <h4>Event Details</h4>
             <form action="../php/createEvent.php" method="POST">
                <div class="form-group">
                   <label for="title">Title:</label>
@@ -130,7 +129,6 @@
             </table>
          </div>
          <div id="menu2" class="container tab-pane fade"><br>
-            <h4>All Registered Users</h4>
             <?php
                $sql = "SELECT `username`, `email` FROM `users`  ORDER BY `username` ASC";
                $result = mysqli_query($conn, $sql);
