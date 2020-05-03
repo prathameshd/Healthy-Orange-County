@@ -243,7 +243,7 @@
          </div>  
          <div id="help" class="tab-pane fade"><br>
                <div class="alert alert-danger">
-                  <li>In case of an emergency call: 911</li>
+                  <h5>In case of an emergency call: 911</h5>
                </div>      
             <div class="card-deck">
                <div class="card" style="width: 18rem; margin: 20px;">
