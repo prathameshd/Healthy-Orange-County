@@ -74,7 +74,7 @@
     <div class="header-content text-md-center">
       <h1>Welcome to Healthy Orange County</h1>
       <br>
-      <p>Healthy Orange County provides resources to help you find health professionals, services and facilities. We also organize and showcase events for social welfare.</p>
+      <p>We provides resources to help you find health professionals, services and facilities. We also organize and showcase events for social welfare.</p>
       <a class="btn btn-success" href="#content">Find Out More About Us</a>
     </div>
   </header>

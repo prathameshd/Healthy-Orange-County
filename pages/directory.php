@@ -56,6 +56,15 @@
          <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#wor">Worship Centers</a>
          </li>
+         <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#eld">Elderly Care</a>
+         </li> 
+         <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#sup">Support Groups</a>
+         </li> 
+         <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#help">Help-lines</a>
+         </li>         
       </ul>
       <!-- Tab panes -->
       <div class="tab-content">
@@ -103,22 +112,6 @@
             <div class="card-deck">
                <div class="card" style="width: 18rem; margin: 20px;">
                   <div class="card-body">
-                     <h5 class="card-title">Orange County Transit Services</h5>
-                     <p class="card-text">Address: 986 W. Hospital Rd. Paoli Indiana 47454</p> 
-                     <p class="card-text">Phone: 8129369000</p>
-                     <a href="#" class="btn btn-outline-info">Website</a>
-                  </div>
-               </div>
-               <div class="card" style="width: 18rem; margin: 20px;">
-                  <div class="card-body">
-                     <h5 class="card-title">Tall Guy Taxi</h5>
-                     <p class="card-text">Address: 1153 S Clay St French Lick Indiana 47432</p> 
-                     <p class="card-text">Phone: 8129369000</p>
-                     <a href="#" class="btn btn-outline-info">Website</a>
-                  </div>
-               </div>
-               <div class="card" style="width: 18rem; margin: 20px;">
-                  <div class="card-body">
                      <h5 class="card-title">Blanton & Pierce Law Office</h5>
                      <h6 class="card-subtitle mb-2 text-muted">Larry Blanton</h6>
                      <p class="card-text">Address: 40 N Court St. Paoli Indiana 47454</p> 
@@ -132,6 +125,22 @@
                      <h6 class="card-subtitle mb-2 text-muted">John Paul Isom</h6>
                      <p class="card-text">Address: 214 S College Ave. Bloomington Indiana 47421</p> 
                      <p class="card-text">Phone: 8008224774</p>
+                     <a href="#" class="btn btn-outline-info">Website</a>
+                  </div>
+               </div>
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">Orange County Transit Services</h5>
+                     <p class="card-text">Address: 986 W. Hospital Rd. Paoli Indiana 47454</p> 
+                     <p class="card-text">Phone: 8129369000</p>
+                     <a href="#" class="btn btn-outline-info">Website</a>
+                  </div>
+               </div>
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">Tall Guy Taxi</h5>
+                     <p class="card-text">Address: 1153 S Clay St French Lick Indiana 47432</p> 
+                     <p class="card-text">Phone: 8129369000</p>
                      <a href="#" class="btn btn-outline-info">Website</a>
                   </div>
                </div>
@@ -157,8 +166,112 @@
                      <a href="#" class="btn btn-outline-info">Website</a>
                   </div>
                </div>
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">Paoli United Methodist Church</h5>
+                     <h6 class="card-subtitle mb-2 text-muted">John Maddison</h6>
+                     <p class="card-text">Address: 794 IN-56, Paoli, Indiana 47454</p> 
+                     <p class="card-text">Phone: 81272329651</p>
+                     <a href="#" class="btn btn-outline-info">Website</a>
+                  </div>
+               </div>
             </div>
          </div>
+         <div id="eld" class="tab-pane fade"><br>
+            <div class="card-deck">
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">Orange County Senior Citizens</h5>
+                     <p class="card-text">Address: 8497 W Main St, French Lick, Indiana 47432</p> 
+                     <p class="card-text">Phone: 8129362257</p>
+                     <a href="#" class="btn btn-outline-info">Website</a>
+                  </div>
+               </div>
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">Home Instead Senior Care</h5>
+                     <p class="card-text">Address: 216 W 6th St #106, Jasper, Indiana 47454</p> 
+                     <p class="card-text">Phone: 8124823311</p>
+                     <a href="#" class="btn btn-outline-info">Website</a>
+                  </div>
+               </div>
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">Springs Valley Meadows</h5>
+                     <p class="card-text">Address: 457 IN-145, French Lick, Indiana 47454</p> 
+                     <p class="card-text">Phone: 8129369991</p>
+                     <a href="#" class="btn btn-outline-info">Website</a>
+                  </div>
+               </div>
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">Senior Helpers</h5>
+                     <p class="card-text">Address: 822 W 1st St Suite 3, Bloomington, Indiana 47454</p> 
+                     <p class="card-text">Phone: 8122483173</p>
+                     <a href="#" class="btn btn-outline-info">Website</a>
+                  </div>
+               </div>   
+            </div>
+         </div>  
+         <div id="sup" class="tab-pane fade"><br>
+            <div class="card-deck">
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">NAMI Indiana</h5>
+                     <p class="card-text">Address: 921 E 86th St #130, Indianapolis, IN 46240</p> 
+                     <p class="card-text">Phone: 8129364583</p>
+                     <a href="#" class="btn btn-outline-info">Website</a>
+                  </div>
+               </div>
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">Cancer Support Community Central Indiana</h5>
+                     <p class="card-text">Address: 5150 W 71st St, Indianapolis, IN 46268</p> 
+                     <p class="card-text">Phone: 8122571505</p>
+                     <a href="#" class="btn btn-outline-info">Website</a>
+                  </div>
+               </div>
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">Support Group of Indiana</h5>
+                     <p class="card-text">Address: 1736 N Wells St, Fort Wayne, Indiana 47454</p> 
+                     <p class="card-text">Phone: 81242429441</p>
+                     <a href="#" class="btn btn-outline-info">Website</a>
+                  </div>
+               </div>
+            </div>
+         </div>  
+         <div id="help" class="tab-pane fade"><br>
+               <div class="alert alert-danger">
+                  <h5>In case of an emergency call: 911</h5>
+               </div>      
+            <div class="card-deck">
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">IU Health Bedford Hospital</h5>
+                     <p class="card-text">Phone: 812-279-6545</p>
+                  </div>
+               </div>
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">IU Health Paoli Hospital</h5>
+                     <p class="card-text">Phone: 812-723-7455</p>
+                  </div>
+               </div>
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">French Lick Police Department</h5>
+                     <p class="card-text">Phone: 812-936-9811</p>
+                  </div>
+               </div>
+               <div class="card" style="width: 18rem; margin: 20px;">
+                  <div class="card-body">
+                     <h5 class="card-title">Orange County Sherif</h5>
+                     <p class="card-text">Phone: 812-723-2417</p>
+                  </div>
+               </div>
+            </div>
+         </div>     
       </div>
    </div> 
    <footer class="page-footer font-small success pt-4 fixed-bottom" style="padding-top: 0px !important;">
