@@ -104,17 +104,17 @@
       <div class="row" style="margin-top: 5%;">
         <div class="col-sm-4">
         <div class="card" style="width:300px;pointer-events:none;">
-        <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
+        <img class="card-img-top" src="../images/hand-up.png" width="250px;" alt="Card image">
         </div>
         </div>
         <div class="col-sm-4">
         <div class="card" style="width:300px;pointer-events:none;">
-        <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
+        <img class="card-img-top" src="../images/safe_haven.jpg" width="250px;" alt="Card image">
         </div>
         </div>
         <div class="col-sm-4">
         <div class="card" style="width:300px;pointer-events:none;">
-        <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
+        <img class="card-img-top" src="../images/Body-In.png" width="250px;" alt="Card image">
         </div>
         </div>
       </div>  
@@ -122,12 +122,12 @@
       <div class="row" style="margin-top: 5%;">
         <div class="col-sm-4">
         <div class="card" style="width:300px;pointer-events:none;">
-        <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
+        <img class="card-img-top" src="../images/foundation.jpg" width="250px;" alt="Card image">
         </div>
         </div>
         <div class="col-sm-4">
         <div class="card" style="width:300px;pointer-events:none;">
-        <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
+        <img class="card-img-top" src="../images/occf.jpg" width="250px;" alt="Card image">
         </div>
         </div>
         <div class="col-sm-4">
