@@ -23,7 +23,7 @@ CREATE TABLE users (
 CREATE TABLE allevents( 
  id int(11) NOT NULL AUTO_INCREMENT, 
  title varchar(100) NOT NULL, 
- description varchar(100) NOT NULL,
+ description varchar(1000) NOT NULL,
  ddate varchar(255) NOT NULL, 
  contact varchar(100) NOT NULL , PRIMARY KEY (id) 
 );
