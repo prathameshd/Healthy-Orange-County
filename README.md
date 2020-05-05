@@ -43,6 +43,13 @@ CREATE TABLE rsvp(
  eventid int(11) NOT NULL , PRIMARY KEY (id) 
 );
 
+CREATE TABLE adminmsgs( 
+  id int(11) NOT NULL AUTO_INCREMENT, 
+  email varchar(50) NOT NULL, 
+  title varchar(100) NOT NULL, 
+  message varchar(500) NOT NULL , PRIMARY KEY (id) 
+);
+
 # Hard Coded Admin:
 INSERT INTO users(id, username, email, verified, password, role) 
 	    values(0, 'admin', 'healthyorangecountyin@gmail.com', 1, 'admin', 'admin');
