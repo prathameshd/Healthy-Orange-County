@@ -3,6 +3,27 @@
          $_SESSION['msg'] = "You must log in first";
 	 header('location: login.php');
        }
+
+   // UPDATE
+   if (isset($_POST['modal_event-btn'])) {
+      $id=$_POST['modal_id'];
+      $title= $_POST['modal_title'];
+      $description= $_POST['modal_description'];
+      $contact= $_POST['modal_contact'];
+      $date=$_POST['modal_date'];
+
+      $query = "UPDATE allevents SET title=?, description=?, contact=?,ddate=? WHERE id=$id";
+      $stmt = $conn->prepare($query);
+      $stmt->bind_param('ssss', $title, $description,$contact,$date);
+      $result = $stmt->execute();
+      if($result) {
+         $stmt->close();
+      } else {
+         $_SESSION['message'] = "Database error: Could not update user";
+      }
+      header('location: ../pages/admin.php');
+   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,14 +90,14 @@
       <div class="tab-content">
          <div id="home" class="tab-pane active"><br>
             <?php
-               $sql2 = "SELECT `title`, `description`,`contact`,`ddate` FROM `allevents`";
+               $sql2 = "SELECT `id`,`title`, `description`,`contact`,`ddate` FROM `allevents`";
                $result = mysqli_query($conn, $sql2);
              ?>
             <table class="table table-hover">
                <tr><th>Title</th><th>Description</th><th>Contact</th><th>Date</th></tr>
                <?php
                   while($event = mysqli_fetch_array($result)){
-                     echo '<tr>';
+                     echo '<tr data-toggle="modal" data-target="#myModal" id="'.$event['title'].'/'.$event['description'].'/'.$event['contact'].'/'.$event['ddate'].'/'.$event['id'].'">';
                      echo '<td>'.$event['title'].'</td>';
                      echo '<td>'.$event['description'].'</td>';
                      echo '<td>'.$event['contact'].'</td>';
@@ -85,6 +106,50 @@
                   }
                 ?>
             </table>
+
+
+               <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Update Event</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          
+            <form action="admin.php" method="POST">
+               <div class="form-group">
+                  <input type="hidden" name="modal_id" id="modal_id" value="">
+                  <label for="title">Title:</label>
+                  <input type="text" class="form-control" id="modal_title" placeholder="Enter Title" name="modal_title" value="">
+               </div>
+               <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea class="form-control" rows="5" id="modal_description" name="modal_description" value="<?php $event['description'] ?>"></textarea>
+               </div>
+               <div class="form-group">
+                  <label for="date">Date</label>
+                  <input type="date" class="form-control" id="modal_date" placeholder="Date" name="modal_date">
+               </div>
+               <div class="form-group">
+                  <label for="contact">Contact:</label>
+                  <input type="email" class="form-control" id="modal_contact" placeholder="Enter email" name="modal_contact">
+               </div>
+               <button type="submit" class="btn btn-primary" name="modal_event-btn" id="modal_event-btn">Update</button>
+            </form>
+
+        </div>
+        
+
+        
+      </div>
+    </div>
+  </div>
+
          </div>
          <div id="menu1" class="tab-pane fade"><br>
             <!-- create event form goes here-->
@@ -146,5 +211,24 @@
          </div>
       </div>
    </div>
+
+
+   <script type="text/javascript">
+      $(document).ready( function() {
+$('tr').click(function(){
+      
+      var cid = $(this).attr('id');
+      var result=cid.split('/')
+      $('#modal_title').val(result[0]);
+      $('#modal_description').val(result[1]);
+      $('#modal_contact').val(result[2]);
+      $('#modal_date').val(result[3]);
+      $('#modal_id').val(result[4]);
+
+      $('#myModal').show();
+      
+});
+});
+   </script>
 </body>
 </html>
