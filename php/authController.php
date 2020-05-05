@@ -162,9 +162,9 @@
       if (empty($_POST['name'])) {
          $errors['name'] = 'Name required';
       }
-      if (empty($_POST['email'])) {
-         $errors['email'] = 'Email required';
-      }
+  //    if (empty($_POST['email'])) {
+    //     $errors['email'] = 'Email required';
+     // }
       if (empty($_POST['date'])) {
          $errors['date'] = 'Date required';
       }
@@ -176,7 +176,7 @@
       }
       if (count($errors) === 0) {
          $name=$_POST["name"];
-         $email=$_POST["email"];
+         $email=$_SESSION["email"];
          $date=$_POST["date"];
          $title=$_POST["title"];
          $message=$_POST["message"];

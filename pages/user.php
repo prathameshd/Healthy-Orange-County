@@ -104,6 +104,25 @@
           ?>
       </div>
    </div>
+   <div class= "container" style = "margin-top: 7%">
+            <h2>Admin Messages</h2>
+            <?php
+               $useremail = $_SESSION['email'];
+               $sql2 = "SELECT title , message FROM adminmsgs where email = '$useremail'";
+               $result = mysqli_query($conn, $sql2);
+             ?>
+            <table class="table table-hover">
+               <tr><th>Title</th><th>Message</th></tr>
+               <?php
+                  while($event = mysqli_fetch_array($result)){
+                     echo '<tr>';
+                     echo '<td>'.$event['title'].'</td>';
+                     echo '<td>'.$event['message'].'</td>';
+                     echo '</tr>';
+                  }
+                ?>
+            </table>
+   </div>
    <br>
 </body>
 </html>
