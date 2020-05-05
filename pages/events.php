@@ -9,12 +9,12 @@
       $sql = "SELECT * FROM rsvp WHERE userid ='$userid' AND eventid = '$eventid' LIMIT 1";
       $result = mysqli_query($conn, $sql);
       if (mysqli_num_rows($result) > 0) {
-         $errors['event'] = "Event already bookmarked";
+         $errors['event'] = "Event is already bookmarked";
       }
       if (count($errors) === 0) {
          $sql = "INSERT INTO rsvp (userid, eventid) VALUES ('$userid' , '$eventid')";
          if (mysqli_query($conn, $sql)) {
-            //echo "New record created successfully";
+            $success = 1;
          } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
          }
@@ -81,6 +81,11 @@
                   <?php foreach ($errors as $error): ?>
                   <li> <?php echo $error; ?> </li>
                   <?php endforeach;?>
+               </div>
+               <?php endif;?>
+               <?php if ($success > 0): ?>
+               <div class="alert alert-success"
+                  <li> <?php echo "Event Bookmarked!" ?> </li>
                </div>
                <?php endif;?>
                <div class="card-columns" id="events">
