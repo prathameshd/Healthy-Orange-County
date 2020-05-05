@@ -89,10 +89,10 @@
                   <label for="name">Name:</label>
                   <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
                </div>
-               <div class="form-group">
+<!--               <div class="form-group">
                   <label for="email">Email:</label>
                   <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email">
-               </div>
+               </div> -->
                <div class="form-group">
                   <label for="date">Date</label>
                   <input type="date" class="form-control" id="date" placeholder="Date" name="date">

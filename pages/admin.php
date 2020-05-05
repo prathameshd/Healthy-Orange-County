@@ -24,6 +24,20 @@
       header('location: ../pages/admin.php');
    }
 
+   if (isset($_POST['modal_reply-btn'])) {
+      $userid=$_POST['user_id'];
+      $title= $_POST['reply_title'];
+      $message= $_POST['reply_message'];
+
+      $sql = "INSERT INTO adminmsgs (email, title, message) VALUES ('$userid', '$title', '$message')";
+         if (mysqli_query($conn, $sql)) {
+            echo "New record created successfully";
+         } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+         }
+   }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +107,7 @@
                $sql2 = "SELECT `id`,`title`, `description`,`contact`,`ddate` FROM `allevents`";
                $result = mysqli_query($conn, $sql2);
              ?>
-            <table class="table table-hover">
+            <table class="table table-hover" id = "update">
                <tr><th>Title</th><th>Description</th><th>Contact</th><th>Date</th></tr>
                <?php
                   while($event = mysqli_fetch_array($result)){
@@ -188,10 +202,47 @@
                      echo '<td>'.$event['ddate'].'</td>';
                      echo '<td>'.$event['title'].'</td>';
                      echo '<td>'.$event['message'].'</td>';
+                     echo '<td><button data-toggle="modal" data-target="#ReplyModal" id="'.$event['email'].'" type="submit" class="btn btn-danger replybtn" name="reply-btn">Reply</button></td>';
                      echo '</tr>';
                   }
                 ?>
             </table>
+
+         
+               <div class="modal" id="ReplyModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Reply</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+
+            <form action="admin.php" method="POST">
+               <div class="form-group">
+                  <input type="hidden" name="user_id" id="user_id" value="">
+                  <label for="title">Title:</label>
+                  <input type="text" class="form-control" id="reply_title" placeholder="Enter Title" name="reply_title" value="">
+               </div>
+               <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" rows="5" id="reply_message" name="reply_message" value = ""></textarea>
+               </div>
+               <button type="submit" class="btn btn-primary" name="modal_reply-btn" id="modal_reply-btn">Send</button>
+            </form>
+
+        </div>
+
+
+        
+      </div>
+    </div>
+  </div>
+
          </div>
          <div id="menu2" class="container tab-pane fade"><br>
             <?php
@@ -215,8 +266,7 @@
 
    <script type="text/javascript">
       $(document).ready( function() {
-$('tr').click(function(){
-      
+     $('#update tr').click(function(){
       var cid = $(this).attr('id');
       var result=cid.split('/')
       $('#modal_title').val(result[0]);
@@ -228,7 +278,17 @@ $('tr').click(function(){
       $('#myModal').show();
       
 });
+
+$('.replybtn').click(function(){
+      var rid = $(this).attr('id');
+      $('#user_id').val(rid);
+      $('#ReplyModal').show();
+      
 });
+
+
+});
+
    </script>
 </body>
 </html>
