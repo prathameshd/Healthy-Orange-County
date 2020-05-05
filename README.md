@@ -1,4 +1,7 @@
-# InfoWeb
+# Website for Healthy Orange County
+MySQL  Ver 15.1 Distrib 10.3.22-MariaDB
+PHP 7.3.15-3 (cli)
+
 Make sure php/authController.php , php/createEvent.php, php/contactmsgs.php and php/verify_email.php use the correct DB credentials. 
 
 Current DB Credentials:
