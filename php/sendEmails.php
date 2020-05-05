@@ -1,60 +1,58 @@
 <?php
-require_once ($_SERVER['DOCUMENT_ROOT'].'/InfoWeb/vendor/autoload.php');
+    require_once ($_SERVER['DOCUMENT_ROOT'].'/InfoWeb/vendor/autoload.php');
 
-// Create the Transport
-$transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-    ->setUsername('healthyorangecountyin@gmail.com')
-    ->setPassword('IUilsz532');
+    // Create the Transport
+    $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+       ->setUsername('healthyorangecountyin@gmail.com')
+       ->setPassword('IUilsz532');
 
-// Create the Mailer using your created Transport
-$mailer = new Swift_Mailer($transport);
+    // Create the Mailer using your created Transport
+    $mailer = new Swift_Mailer($transport);
 
-function sendVerificationEmail($userEmail, $token)
-{
-    global $mailer;
-    $body = '<!DOCTYPE html>
-    <html lang="en">
+    function sendVerificationEmail($userEmail, $token) {
+       global $mailer;
+       $body = '<!DOCTYPE html>
+                <html lang="en">
+                   <head>
+                      <meta charset="UTF-8">
+                      <title>Test mail</title>
+                      <style>
+                         .wrapper {
+                            padding: 20px;
+                            color: #444;
+                            font-size: 1.3em;
+                         }
+                         a {
+                            background: #592f80;
+                            text-decoration: none;
+                            padding: 8px 15px;
+                            border-radius: 5px;
+                            color: #fff;
+                         }
+                      </style>
+                   </head>
+                   <body>
+                      <div class="wrapper">
+                         <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
+                         <a href="http://localhost/InfoWeb/php/verify_email.php?token=' . $token . '">Verify Email!</a>
+                      </div>
+                   </body>
+                </html>';
 
-    <head>
-      <meta charset="UTF-8">
-      <title>Test mail</title>
-      <style>
-        .wrapper {
-          padding: 20px;
-          color: #444;
-          font-size: 1.3em;
-        }
-        a {
-          background: #592f80;
-          text-decoration: none;
-          padding: 8px 15px;
-          border-radius: 5px;
-          color: #fff;
-        }
-      </style>
-    </head>
+       // Create a message
+       $message = (new Swift_Message('Verify your email'))
+          ->setFrom('healthyorangecountyin@gmail.com')
+          ->setTo($userEmail)
+          ->setBody($body, 'text/html');
 
-    <body>
-      <div class="wrapper">
-        <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-        <a href="http://localhost/InfoWeb/php/verify_email.php?token=' . $token . '">Verify Email!</a>
-      </div>
-    </body>
+       // Send the message
+       $result = $mailer->send($message);
 
-    </html>';
-
-    // Create a message
-    $message = (new Swift_Message('Verify your email'))
-        ->setFrom('healthyorangecountyin@gmail.com')
-        ->setTo($userEmail)
-        ->setBody($body, 'text/html');
-
-    // Send the message
-    $result = $mailer->send($message);
-
-    if ($result > 0) {
-        return true;
-    } else {
-        return false;
+       if ($result > 0) {
+          return true;
+       } else {
+          return false;
+       }
     }
-}
+
+ ?>

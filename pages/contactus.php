@@ -95,10 +95,6 @@
                   <label for="name">Name:</label>
                   <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
                </div>
-<!--               <div class="form-group">
-                  <label for="email">Email:</label>
-                  <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email">
-               </div> -->
                <div class="form-group">
                   <label for="date">Date</label>
                   <input type="date" class="form-control" id="date" placeholder="Date" name="date">
@@ -116,7 +112,7 @@
          </div>
       </div>
    </div>
-<br><br>
+   <br><br>
    <footer class="page-footer font-small success pt-4 fixed-bottom" style="padding-top: 0px !important;">
       <div class="footer-copyright text-center py-3">© 2020 Copyright:
          <a href="index.php" style="color: chocolate !important">Healthy Orange County</a>

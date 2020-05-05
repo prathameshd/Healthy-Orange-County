@@ -162,9 +162,6 @@
       if (empty($_POST['name'])) {
          $errors['name'] = 'Name required';
       }
-  //    if (empty($_POST['email'])) {
-    //     $errors['email'] = 'Email required';
-     // }
       if (empty($_POST['date'])) {
          $errors['date'] = 'Date required';
       }

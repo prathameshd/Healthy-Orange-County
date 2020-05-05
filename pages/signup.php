@@ -21,7 +21,7 @@
          </button>
       </nav>
    </div>
-   <br><br> 
+   <br><br>
    <div class="container" style="margin-top: 50px">
       <div class="row">
          <div class="col-md-4 offset-md-4 form-wrapper auth">

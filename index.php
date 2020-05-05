@@ -63,7 +63,7 @@
          </div>
       </div>
    </nav>
-   
+
 <!-- Video Cover -->
 <header class="v-header container">
     <div class="fullscreen-video-wrap">
@@ -95,7 +95,7 @@
               </div>
             </div>
          </div>
-      </div> 
+      </div>
 
       <div class="card mb-3 bg-light maincard">
          <div class="row no-gutters">

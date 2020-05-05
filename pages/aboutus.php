@@ -42,7 +42,7 @@
                 width: 100%;
                 margin-top: 0;
             }
-        }        
+        }
    </style>
 </head>
 <body>
@@ -74,7 +74,7 @@
       </div>
    </nav>
 
-<!-- About us content -->
+   <!-- About us content -->
    <div class="about-image">
         <img class="d-block w-100" src="../images/about.jpg" style="opacity: 0.4">
         <div class="image-text">
@@ -82,7 +82,7 @@
             <h3>To connect residents and visitors</h3>
             <h3> to all health and wellness providers</h3>
             <h3> and practitioners in Orange County.</h3>
-        </div>             
+        </div>
    </div>
 
    <div class="container" style="margin-top: 100px;">
@@ -117,7 +117,7 @@
         <img class="card-img-top" src="../images/Body-In.png" width="250px;" alt="Card image">
         </div>
         </div>
-      </div>  
+      </div>
 
       <div class="row" style="margin-top: 5%;">
         <div class="col-sm-4">
@@ -135,8 +135,8 @@
         <img class="card-img-top" src="../images/occ.png" width="250px;" alt="Card image">
         </div>
         </div>
-      </div>  
- </div>
+      </div>
+   </div>
 
 
 
